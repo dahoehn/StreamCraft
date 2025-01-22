@@ -116,7 +116,6 @@ float sc::mzxml::MZXML_SPECTRUM::extract_activation_ce() const
 
 sc::MZXML_BINARY_METADATA sc::mzxml::MZXML_SPECTRUM::extract_binary_metadata() const
 {
-
     sc::MZXML_BINARY_METADATA binary_metadata;
 
     binary_metadata.precision = spec.child("peaks").attribute("precision").as_int();
@@ -148,7 +147,6 @@ sc::MZXML_BINARY_METADATA sc::mzxml::MZXML_SPECTRUM::extract_binary_metadata() c
 
 std::vector<std::vector<float>> sc::mzxml::MZXML_SPECTRUM::extract_binary_data(const MZXML_BINARY_METADATA &mtd) const
 {
-
     std::vector<std::vector<float>> spectrum(2);
 
     const int number_traces = spec.attribute("peaksCount").as_int();
@@ -191,7 +189,6 @@ std::vector<std::vector<float>> sc::mzxml::MZXML_SPECTRUM::extract_binary_data(c
 
 std::vector<pugi::xml_node> sc::mzxml::MZXML::link_vector_spectra_nodes() const
 {
-
     std::vector<pugi::xml_node> spectra;
 
     pugi::xml_node msrun = root.child("msRun");
@@ -208,7 +205,6 @@ std::vector<pugi::xml_node> sc::mzxml::MZXML::link_vector_spectra_nodes() const
 
 sc::mzxml::MZXML::MZXML(const std::string &file) : sc::MS_READER(file)
 {
-
     file_path = file;
 
     file_dir = file.substr(0, file.find_last_of("/\\") + 1);
@@ -309,7 +305,6 @@ std::string sc::mzxml::MZXML::get_type()
 
 std::vector<int> sc::mzxml::MZXML::get_spectra_index(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> idxs;
@@ -339,7 +334,6 @@ std::vector<int> sc::mzxml::MZXML::get_spectra_index(std::vector<int> indices)
 
 std::vector<int> sc::mzxml::MZXML::get_spectra_scan_number(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> scans;
@@ -369,7 +363,6 @@ std::vector<int> sc::mzxml::MZXML::get_spectra_scan_number(std::vector<int> indi
 
 std::vector<int> sc::mzxml::MZXML::get_spectra_array_length(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> lengths;
@@ -399,7 +392,6 @@ std::vector<int> sc::mzxml::MZXML::get_spectra_array_length(std::vector<int> ind
 
 std::vector<int> sc::mzxml::MZXML::get_spectra_level(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> levels;
@@ -429,7 +421,6 @@ std::vector<int> sc::mzxml::MZXML::get_spectra_level(std::vector<int> indices)
 
 std::vector<int> sc::mzxml::MZXML::get_spectra_mode(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> modes;
@@ -459,7 +450,6 @@ std::vector<int> sc::mzxml::MZXML::get_spectra_mode(std::vector<int> indices)
 
 std::vector<int> sc::mzxml::MZXML::get_spectra_polarity(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> polarities;
@@ -489,7 +479,6 @@ std::vector<int> sc::mzxml::MZXML::get_spectra_polarity(std::vector<int> indices
 
 std::vector<float> sc::mzxml::MZXML::get_spectra_lowmz(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> lowmzs;
@@ -519,7 +508,6 @@ std::vector<float> sc::mzxml::MZXML::get_spectra_lowmz(std::vector<int> indices)
 
 std::vector<float> sc::mzxml::MZXML::get_spectra_highmz(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> highmzs;
@@ -549,7 +537,6 @@ std::vector<float> sc::mzxml::MZXML::get_spectra_highmz(std::vector<int> indices
 
 std::vector<float> sc::mzxml::MZXML::get_spectra_bpmz(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> bpmzs;
@@ -579,7 +566,6 @@ std::vector<float> sc::mzxml::MZXML::get_spectra_bpmz(std::vector<int> indices)
 
 std::vector<float> sc::mzxml::MZXML::get_spectra_bpint(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> bpints;
@@ -609,7 +595,6 @@ std::vector<float> sc::mzxml::MZXML::get_spectra_bpint(std::vector<int> indices)
 
 std::vector<float> sc::mzxml::MZXML::get_spectra_tic(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> tics;
@@ -639,7 +624,6 @@ std::vector<float> sc::mzxml::MZXML::get_spectra_tic(std::vector<int> indices)
 
 std::vector<float> sc::mzxml::MZXML::get_spectra_rt(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> rts;
@@ -669,7 +653,6 @@ std::vector<float> sc::mzxml::MZXML::get_spectra_rt(std::vector<int> indices)
 
 std::vector<float> sc::mzxml::MZXML::get_spectra_precursor_mz(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> mzs;
@@ -699,7 +682,6 @@ std::vector<float> sc::mzxml::MZXML::get_spectra_precursor_mz(std::vector<int> i
 
 std::vector<float> sc::mzxml::MZXML::get_spectra_collision_energy(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> energies;
@@ -799,7 +781,6 @@ sc::MS_SUMMARY sc::mzxml::MZXML::get_summary()
 
 sc::MS_SPECTRA_HEADERS sc::mzxml::MZXML::get_spectra_headers(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     sc::MS_SPECTRA_HEADERS headers;
@@ -867,7 +848,6 @@ sc::MS_SPECTRA_HEADERS sc::mzxml::MZXML::get_spectra_headers(std::vector<int> in
 
 std::vector<std::vector<std::vector<float>>> sc::mzxml::MZXML::get_spectra(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<std::vector<std::vector<float>>> sp;
@@ -906,7 +886,6 @@ std::vector<std::vector<std::vector<float>>> sc::mzxml::MZXML::get_spectra(std::
 
 std::vector<std::vector<std::string>> sc::mzxml::MZXML::get_software()
 {
-
     std::vector<std::vector<std::string>> output(3);
 
     std::string search_software = "//msInstrument/child::node()[starts-with(name(), 'soft')]";
@@ -927,7 +906,6 @@ std::vector<std::vector<std::string>> sc::mzxml::MZXML::get_software()
 
 std::vector<std::vector<std::string>> sc::mzxml::MZXML::get_hardware()
 {
-
     std::vector<std::vector<std::string>> output(2);
 
     std::string search_inst = "//msInstrument/child::node()[starts-with(name(), 'ms')]";
@@ -947,7 +925,6 @@ std::vector<std::vector<std::string>> sc::mzxml::MZXML::get_hardware()
 
 sc::MS_SPECTRUM sc::mzxml::MZXML::get_spectrum(const int &idx)
 {
-
     const sc::MZXML_SPECTRUM &spec(spectra_nodes[idx]);
 
     sc::MS_SPECTRUM spectrum;

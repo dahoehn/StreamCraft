@@ -13,7 +13,6 @@
 
 std::unique_ptr<sc::MS_READER> sc::create_ms_reader(const std::string &file)
 {
-
     std::string file_dir = file.substr(0, file.find_last_of("/\\") + 1);
 
     if (file_dir.back() == '/')
@@ -31,7 +30,6 @@ std::unique_ptr<sc::MS_READER> sc::create_ms_reader(const std::string &file)
 
     switch (format_case)
     {
-
     case 0:
     {
         return std::make_unique<MZML>(file);
@@ -48,7 +46,6 @@ std::unique_ptr<sc::MS_READER> sc::create_ms_reader(const std::string &file)
 
 sc::MS_ANALYSIS::MS_ANALYSIS(const std::string &file)
 {
-
     file_path = file;
 
     file_dir = file.substr(0, file.find_last_of("/\\") + 1);
@@ -66,7 +63,6 @@ sc::MS_ANALYSIS::MS_ANALYSIS(const std::string &file)
 
     switch (format_case)
     {
-
     case 0:
     {
         ms = std::make_unique<MZML>(file);
@@ -84,7 +80,6 @@ sc::MS_ANALYSIS::MS_ANALYSIS(const std::string &file)
 
 sc::MS_TARGETS_SPECTRA sc::MS_ANALYSIS::get_spectra_targets(const sc::MS_TARGETS &targets, const sc::MS_SPECTRA_HEADERS &headers, const float &minIntLv1 = 0, const float &minIntLv2 = 0)
 {
-
     const int number_spectra = get_number_spectra();
 
     const int number_targets = targets.index.size();
@@ -114,11 +109,9 @@ sc::MS_TARGETS_SPECTRA sc::MS_ANALYSIS::get_spectra_targets(const sc::MS_TARGETS
 
     for (int i = 0; i < number_targets; i++)
     {
-
 #pragma omp parallel for shared(idx)
         for (int j = 0; j < number_spectra; j++)
         {
-
             // excludes higher configuration function scans
             if (headers.configuration[j] >= 3)
                 continue;
@@ -192,7 +185,6 @@ sc::MS_TARGETS_SPECTRA sc::MS_ANALYSIS::get_spectra_targets(const sc::MS_TARGETS
 #pragma omp for
         for (int i = 0; i < number_spectra_targets; i++)
         {
-
             const std::vector<int> i_idx = {idx_vector[i]};
 
             std::vector<std::vector<std::vector<float>>> spectra = get_spectra(i_idx);
@@ -212,25 +204,18 @@ sc::MS_TARGETS_SPECTRA sc::MS_ANALYSIS::get_spectra_targets(const sc::MS_TARGETS
 
             for (int j = 0; j < number_targets; j++)
             {
-
                 if (targets.polarity[j] == i_polarity)
                 {
-
                     if (targets.rtmax[j] == 0 || (i_rt >= targets.rtmin[j] && i_rt <= targets.rtmax[j]))
                     {
-
                         if (targets.mobilitymax[j] == 0 || (i_mobility >= targets.mobilitymin[j] && i_mobility <= targets.mobilitymax[j]))
                         {
-
                             if (targets.precursor[j])
                             {
-
                                 if ((i_pre_mz >= targets.mzmin[j] && i_pre_mz <= targets.mzmax[j]) || targets.mzmax[j] == 0)
                                 {
-
                                     for (int k = 0; k < n_traces; k++)
                                     {
-
                                         if (spectra[0][1][k] >= minIntLv2 && i_level == 2)
                                         {
                                             id_priv.push_back(targets.id[j]);
@@ -250,13 +235,10 @@ sc::MS_TARGETS_SPECTRA sc::MS_ANALYSIS::get_spectra_targets(const sc::MS_TARGETS
                             }
                             else
                             {
-
                                 for (int k = 0; k < n_traces; k++)
                                 {
-
                                     if ((spectra[0][0][k] >= targets.mzmin[j] && spectra[0][0][k] <= targets.mzmax[j]) || targets.mzmax[j] == 0)
                                     {
-
                                         if ((spectra[0][1][k] >= minIntLv2 && i_level == 2) || (spectra[0][1][k] >= minIntLv1 && i_level == 1))
                                         {
                                             id_priv.push_back(targets.id[j]);

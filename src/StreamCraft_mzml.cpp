@@ -280,7 +280,6 @@ float sc::mzml::MZML_SPECTRUM::extract_activation_ce() const
 
 std::vector<sc::MZML_BINARY_METADATA> sc::mzml::MZML_SPECTRUM::extract_binary_metadata() const
 {
-
     std::vector<MZML_BINARY_METADATA> mtd_vec;
 
     const pugi::xml_node binary_list = spec.child("binaryDataArrayList");
@@ -289,7 +288,6 @@ std::vector<sc::MZML_BINARY_METADATA> sc::mzml::MZML_SPECTRUM::extract_binary_me
 
     for (const pugi::xml_node &bin : binary_list.children("binaryDataArray"))
     {
-
         MZML_BINARY_METADATA mtd;
 
         const pugi::xml_node node_integer_32 = bin.find_child_by_attribute("cvParam", "accession", "MS:1000519");
@@ -357,7 +355,6 @@ std::vector<sc::MZML_BINARY_METADATA> sc::mzml::MZML_SPECTRUM::extract_binary_me
 
             if (node_data_type)
             {
-
                 has_bin_data_type = true;
 
                 mtd.data_name = node_data_type.attribute("name").as_string();
@@ -396,7 +393,6 @@ std::vector<sc::MZML_BINARY_METADATA> sc::mzml::MZML_SPECTRUM::extract_binary_me
 
 std::vector<std::vector<float>> sc::mzml::MZML_SPECTRUM::extract_binary_data(const std::vector<MZML_BINARY_METADATA> &mtd) const
 {
-
     std::vector<std::vector<float>> spectrum;
 
     const int number_traces = spec.attribute("defaultArrayLength").as_int();
@@ -417,7 +413,6 @@ std::vector<std::vector<float>> sc::mzml::MZML_SPECTRUM::extract_binary_data(con
 
     for (auto i = node_binary_list.children("binaryDataArray").begin(); i != node_binary_list.children("binaryDataArray").end(); ++i)
     {
-
         const pugi::xml_node &bin = *i;
 
         const pugi::xml_node node_binary = bin.child("binary");
@@ -533,7 +528,6 @@ float sc::mzml::MZML_CHROMATOGRAM::extract_product_mz() const
 
 std::vector<std::vector<float>> sc::mzml::MZML_CHROMATOGRAM::extract_binary_data() const
 {
-
     std::vector<std::vector<float>> chromatogram;
 
     const int number_traces = chrom.attribute("defaultArrayLength").as_int();
@@ -548,7 +542,6 @@ std::vector<std::vector<float>> sc::mzml::MZML_CHROMATOGRAM::extract_binary_data
 
     for (auto i = node_binary_list.children("binaryDataArray").begin(); i != node_binary_list.children("binaryDataArray").end(); ++i)
     {
-
         const pugi::xml_node &bin = *i;
 
         MZML_BINARY_METADATA mtd;
@@ -616,7 +609,6 @@ std::vector<std::vector<float>> sc::mzml::MZML_CHROMATOGRAM::extract_binary_data
 
             if (node_data_type)
             {
-
                 has_bin_data_type = true;
 
                 mtd.data_name = node_data_type.attribute("name").as_string();
@@ -693,7 +685,6 @@ std::vector<std::vector<float>> sc::mzml::MZML_CHROMATOGRAM::extract_binary_data
 }
 sc::mzml::MZML::MZML(const std::string &file) : sc::MS_READER(file)
 {
-
     file_path = file;
 
     file_dir = file.substr(0, file.find_last_of("/\\") + 1);
@@ -735,7 +726,6 @@ sc::mzml::MZML::MZML(const std::string &file) : sc::MS_READER(file)
 
 std::vector<pugi::xml_node> sc::mzml::MZML::link_vector_spectra_nodes() const
 {
-
     std::vector<pugi::xml_node> spectra;
 
     std::string search_run = "//run";
@@ -756,7 +746,6 @@ std::vector<pugi::xml_node> sc::mzml::MZML::link_vector_spectra_nodes() const
 
 std::vector<pugi::xml_node> sc::mzml::MZML::link_vector_chrom_nodes() const
 {
-
     std::vector<pugi::xml_node> chrom_nodes;
 
     std::string search_run = "//run";
@@ -888,7 +877,6 @@ std::string sc::mzml::MZML::get_time_stamp()
 
 std::vector<int> sc::mzml::MZML::get_spectra_index(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> idxs;
@@ -918,7 +906,6 @@ std::vector<int> sc::mzml::MZML::get_spectra_index(std::vector<int> indices)
 
 std::vector<int> sc::mzml::MZML::get_spectra_scan_number(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> scans;
@@ -948,7 +935,6 @@ std::vector<int> sc::mzml::MZML::get_spectra_scan_number(std::vector<int> indice
 
 std::vector<int> sc::mzml::MZML::get_spectra_array_length(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> lengths;
@@ -978,7 +964,6 @@ std::vector<int> sc::mzml::MZML::get_spectra_array_length(std::vector<int> indic
 
 std::vector<int> sc::mzml::MZML::get_spectra_level(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> levels;
@@ -1008,7 +993,6 @@ std::vector<int> sc::mzml::MZML::get_spectra_level(std::vector<int> indices)
 
 std::vector<int> sc::mzml::MZML::get_spectra_configuration(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> functions;
@@ -1038,7 +1022,6 @@ std::vector<int> sc::mzml::MZML::get_spectra_configuration(std::vector<int> indi
 
 std::vector<int> sc::mzml::MZML::get_spectra_mode(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> modes;
@@ -1068,7 +1051,6 @@ std::vector<int> sc::mzml::MZML::get_spectra_mode(std::vector<int> indices)
 
 std::vector<int> sc::mzml::MZML::get_spectra_polarity(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> polarities;
@@ -1098,7 +1080,6 @@ std::vector<int> sc::mzml::MZML::get_spectra_polarity(std::vector<int> indices)
 
 std::vector<float> sc::mzml::MZML::get_spectra_lowmz(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> lowmzs;
@@ -1128,7 +1109,6 @@ std::vector<float> sc::mzml::MZML::get_spectra_lowmz(std::vector<int> indices)
 
 std::vector<float> sc::mzml::MZML::get_spectra_highmz(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> highmzs;
@@ -1158,7 +1138,6 @@ std::vector<float> sc::mzml::MZML::get_spectra_highmz(std::vector<int> indices)
 
 std::vector<float> sc::mzml::MZML::get_spectra_bpmz(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> bpmzs;
@@ -1188,7 +1167,6 @@ std::vector<float> sc::mzml::MZML::get_spectra_bpmz(std::vector<int> indices)
 
 std::vector<float> sc::mzml::MZML::get_spectra_bpint(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> bpints;
@@ -1218,7 +1196,6 @@ std::vector<float> sc::mzml::MZML::get_spectra_bpint(std::vector<int> indices)
 
 std::vector<float> sc::mzml::MZML::get_spectra_tic(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> tics;
@@ -1248,7 +1225,6 @@ std::vector<float> sc::mzml::MZML::get_spectra_tic(std::vector<int> indices)
 
 std::vector<float> sc::mzml::MZML::get_spectra_rt(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> rts;
@@ -1278,7 +1254,6 @@ std::vector<float> sc::mzml::MZML::get_spectra_rt(std::vector<int> indices)
 
 std::vector<float> sc::mzml::MZML::get_spectra_mobility(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> dts;
@@ -1308,7 +1283,6 @@ std::vector<float> sc::mzml::MZML::get_spectra_mobility(std::vector<int> indices
 
 std::vector<int> sc::mzml::MZML::get_spectra_precursor_scan(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<int> scans;
@@ -1338,7 +1312,6 @@ std::vector<int> sc::mzml::MZML::get_spectra_precursor_scan(std::vector<int> ind
 
 std::vector<float> sc::mzml::MZML::get_spectra_precursor_mz(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> mzs;
@@ -1368,7 +1341,6 @@ std::vector<float> sc::mzml::MZML::get_spectra_precursor_mz(std::vector<int> ind
 
 std::vector<float> sc::mzml::MZML::get_spectra_precursor_window_mz(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> mzs;
@@ -1398,7 +1370,6 @@ std::vector<float> sc::mzml::MZML::get_spectra_precursor_window_mz(std::vector<i
 
 std::vector<float> sc::mzml::MZML::get_spectra_precursor_window_mzlow(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> offsets;
@@ -1428,7 +1399,6 @@ std::vector<float> sc::mzml::MZML::get_spectra_precursor_window_mzlow(std::vecto
 
 std::vector<float> sc::mzml::MZML::get_spectra_precursor_window_mzhigh(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> offsets;
@@ -1458,7 +1428,6 @@ std::vector<float> sc::mzml::MZML::get_spectra_precursor_window_mzhigh(std::vect
 
 std::vector<float> sc::mzml::MZML::get_spectra_collision_energy(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<float> energies;
@@ -1572,7 +1541,6 @@ sc::MS_SUMMARY sc::mzml::MZML::get_summary()
 
 sc::MS_SPECTRA_HEADERS sc::mzml::MZML::get_spectra_headers(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     sc::MS_SPECTRA_HEADERS headers;
@@ -1599,7 +1567,6 @@ sc::MS_SPECTRA_HEADERS sc::mzml::MZML::get_spectra_headers(std::vector<int> indi
 
     for (int i = 0; i < n; i++)
     {
-
         const int &index = idxs[i];
 
         const sc::MZML_SPECTRUM &sp = spectra_nodes[index];
@@ -1663,7 +1630,6 @@ sc::MS_SPECTRA_HEADERS sc::mzml::MZML::get_spectra_headers(std::vector<int> indi
 
 sc::MS_CHROMATOGRAMS_HEADERS sc::mzml::MZML::get_chromatograms_headers(std::vector<int> indices)
 {
-
     const int number_chromatograms = get_number_chromatograms();
 
     sc::MS_CHROMATOGRAMS_HEADERS headers;
@@ -1690,7 +1656,6 @@ sc::MS_CHROMATOGRAMS_HEADERS sc::mzml::MZML::get_chromatograms_headers(std::vect
 
     for (int i = 0; i < n; i++)
     {
-
         const int &index = idxs[i];
 
         const MZML_CHROMATOGRAM &ch(chrom_nodes[index]);
@@ -1734,7 +1699,6 @@ sc::MS_CHROMATOGRAMS_HEADERS sc::mzml::MZML::get_chromatograms_headers(std::vect
 
 std::vector<std::vector<std::vector<float>>> sc::mzml::MZML::get_spectra(std::vector<int> indices)
 {
-
     const int number_spectra = get_number_spectra();
 
     std::vector<std::vector<std::vector<float>>> sp;
@@ -1773,7 +1737,6 @@ std::vector<std::vector<std::vector<float>>> sc::mzml::MZML::get_spectra(std::ve
 
 std::vector<std::vector<std::vector<float>>> sc::mzml::MZML::get_chromatograms(std::vector<int> indices)
 {
-
     const int number_chromatograms = get_number_chromatograms();
 
     std::vector<std::vector<std::vector<float>>> chr;
@@ -1810,7 +1773,6 @@ std::vector<std::vector<std::vector<float>>> sc::mzml::MZML::get_chromatograms(s
 
 std::vector<std::vector<std::string>> sc::mzml::MZML::get_software()
 {
-
     std::vector<std::vector<std::string>> output(3);
 
     std::string search_software = "//softwareList/child::node()";
@@ -1819,10 +1781,8 @@ std::vector<std::vector<std::string>> sc::mzml::MZML::get_software()
 
     if (xps_software.size() > 0)
     {
-
         for (pugi::xpath_node_set::const_iterator it = xps_software.begin(); it != xps_software.end(); ++it)
         {
-
             pugi::xpath_node node = *it;
 
             for (pugi::xml_node temp : node.node().children())
@@ -1843,7 +1803,6 @@ std::vector<std::vector<std::string>> sc::mzml::MZML::get_software()
 
 std::vector<std::vector<std::string>> sc::mzml::MZML::get_hardware()
 {
-
     std::vector<std::vector<std::string>> output(2);
 
     std::string search_ref = "//referenceableParamGroup";
@@ -1910,7 +1869,6 @@ std::vector<std::vector<std::string>> sc::mzml::MZML::get_hardware()
 
 sc::MS_SPECTRUM sc::mzml::MZML::get_spectrum(const int &idx)
 {
-
     sc::MS_SPECTRUM spectrum;
 
     if (idx < 0 || idx >= get_number_spectra())
@@ -1986,7 +1944,6 @@ void sc::mzml::MZML::write_spectra(
     const std::vector<std::vector<std::vector<float>>> &spectra,
     const std::vector<std::string> &names, MS_SPECTRA_MODE mode, bool compress, bool save, std::string save_suffix)
 {
-
     if (spectra.size() == 0)
         return;
 
@@ -2003,7 +1960,6 @@ void sc::mzml::MZML::write_spectra(
 
     if (spec_list_node)
     {
-
         for (pugi::xml_node child = spec_list_node.first_child(); child; child = child.next_sibling())
         {
             spectra_nodes.push_back(child);
@@ -2023,7 +1979,6 @@ void sc::mzml::MZML::write_spectra(
 
     for (size_t i = 0; i < spectra.size(); i++)
     {
-
         pugi::xml_node spec = spectra_nodes[i];
 
         const std::vector<float> &mz = spectra[i][0];
@@ -2080,7 +2035,6 @@ void sc::mzml::MZML::write_spectra(
 
         for (size_t j = 0; j < spectra[i].size(); j++)
         {
-
             const std::vector<float> &x = spectra[i][j];
 
             std::string x_enc = sc::encode_little_endian_from_float(x, 4);
@@ -2155,7 +2109,6 @@ void sc::mzml::MZML::write_spectra(
     }
     if (save)
     {
-
         if (save_suffix == "")
             save_suffix = "_modified";
 

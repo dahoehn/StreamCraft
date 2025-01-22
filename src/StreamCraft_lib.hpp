@@ -13,12 +13,10 @@
 
 namespace sc
 {
-
     std::unique_ptr<MS_READER> create_ms_reader(const std::string &file);
 
     class MS_ANALYSIS
     {
-
     private:
         const std::vector<std::string> possible_formats = {"mzML", "mzXML", "animl"};
 

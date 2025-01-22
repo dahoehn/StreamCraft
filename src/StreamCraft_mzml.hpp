@@ -16,10 +16,8 @@
 
 namespace sc
 {
-
     inline namespace mzml
     {
-
         const std::vector<std::string> mzml_possible_accessions_binary_data = {
             "MS:1000514", "MS:1000515", "MS:1000516", "MS:1000517",
             "MS:1000595", "MS:1000617", "MS:1000786", "MS:1000820",

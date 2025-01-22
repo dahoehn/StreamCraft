@@ -12,10 +12,8 @@
 
 namespace sc
 {
-
     inline namespace utils
     {
-
         enum MS_SPECTRA_MODE
         {
             UNDEFINED,

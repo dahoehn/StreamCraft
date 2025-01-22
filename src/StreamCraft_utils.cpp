@@ -2,7 +2,6 @@
 
 std::string sc::utils::encode_little_endian_from_float(const std::vector<float> &input, const int &precision)
 {
-
     if (precision == 8)
     {
         std::vector<uint8_t> bytes(sizeof(double) * input.size());
@@ -29,7 +28,6 @@ std::string sc::utils::encode_little_endian_from_float(const std::vector<float> 
 
 std::string sc::utils::encode_little_endian_from_double(const std::vector<double> &input, const int &precision)
 {
-
     if (precision == 8)
     {
         std::vector<uint8_t> bytes(sizeof(double) * input.size());
@@ -56,7 +54,6 @@ std::string sc::utils::encode_little_endian_from_double(const std::vector<double
 
 std::string sc::utils::encode_big_endian_from_float(const std::vector<float> &input, const int &precision)
 {
-
     if (precision == 8)
     {
         std::vector<uint8_t> bytes(sizeof(double) * input.size());
@@ -99,7 +96,6 @@ std::string sc::utils::encode_big_endian_from_float(const std::vector<float> &in
 
 std::string sc::utils::encode_big_endian_from_double(const std::vector<double> &input, const int &precision)
 {
-
     if (precision == 8)
     {
         std::vector<uint8_t> bytes(sizeof(double) * input.size());
@@ -144,7 +140,6 @@ std::string sc::utils::encode_big_endian_from_double(const std::vector<double> &
 
 std::vector<float> sc::utils::decode_little_endian_to_float(const std::string &str, const int &precision)
 {
-
     std::vector<unsigned char> bytes(str.begin(), str.end());
 
     if (precision != sizeof(double) && precision != sizeof(float))
@@ -178,7 +173,6 @@ std::vector<float> sc::utils::decode_little_endian_to_float(const std::string &s
 
 std::vector<double> sc::utils::decode_little_endian_to_double(const std::string &str, const int &precision)
 {
-
     std::vector<unsigned char> bytes(str.begin(), str.end());
 
     if (precision != sizeof(double) && precision != sizeof(float))
@@ -212,7 +206,6 @@ std::vector<double> sc::utils::decode_little_endian_to_double(const std::string 
 
 std::vector<float> sc::utils::decode_big_endian_to_float(const std::string &str, const int &precision)
 {
-
     std::vector<unsigned char> bytes(str.begin(), str.end());
 
     if (precision != sizeof(double) && precision != sizeof(float))
@@ -224,7 +217,6 @@ std::vector<float> sc::utils::decode_big_endian_to_float(const std::string &str,
 
     for (size_t i = 0; i < bytes_size; ++i)
     {
-
         if (precision == sizeof(double))
         {
             uint64_t value = 0;
@@ -257,7 +249,6 @@ std::vector<float> sc::utils::decode_big_endian_to_float(const std::string &str,
 
 std::vector<double> sc::utils::decode_big_endian_to_double(const std::string &str, const int &precision)
 {
-
     std::vector<unsigned char> bytes(str.begin(), str.end());
 
     if (precision != sizeof(double) && precision != sizeof(float))
@@ -269,7 +260,6 @@ std::vector<double> sc::utils::decode_big_endian_to_double(const std::string &st
 
     for (size_t i = 0; i < bytes_size; ++i)
     {
-
         if (precision == sizeof(double))
         {
             uint64_t value = 0;
@@ -302,7 +292,6 @@ std::vector<double> sc::utils::decode_big_endian_to_double(const std::string &st
 
 std::string sc::utils::compress_zlib(const std::string &str)
 {
-
     std::vector<char> compressed_data;
 
     z_stream zs;
@@ -339,7 +328,6 @@ std::string sc::utils::compress_zlib(const std::string &str)
 
 std::string sc::utils::decompress_zlib(const std::string &compressed_string)
 {
-
     z_stream zs;
 
     memset(&zs, 0, sizeof(zs));
@@ -377,7 +365,6 @@ std::string sc::utils::decompress_zlib(const std::string &compressed_string)
 
 std::string sc::utils::encode_base64(const std::string &str)
 {
-
     static const char *base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
     std::string encoded_data;
@@ -386,7 +373,6 @@ std::string sc::utils::encode_base64(const std::string &str)
 
     for (size_t i = 0; i < str.size(); i += 3)
     {
-
         int b = (str[i] & 0xFC) >> 2;
         encoded_data.push_back(base64_chars[b]);
 
@@ -422,7 +408,6 @@ std::string sc::utils::encode_base64(const std::string &str)
 
 std::string sc::utils::decode_base64(const std::string &encoded_string)
 {
-
     std::string decoded_string;
 
     decoded_string.reserve((encoded_string.size() * 3) / 4);

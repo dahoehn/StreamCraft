@@ -15,10 +15,8 @@
 
 namespace sc
 {
-
     inline namespace mzxml
     {
-
         class MZXML_BINARY_METADATA
         {
         public:
