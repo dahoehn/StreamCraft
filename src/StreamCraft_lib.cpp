@@ -78,7 +78,7 @@ sc::MS_ANALYSIS::MS_ANALYSIS(const std::string &file)
     }
 };
 
-sc::MS_TARGETS_SPECTRA sc::MS_ANALYSIS::get_spectra_targets(const sc::MS_TARGETS &targets, const sc::MS_SPECTRA_HEADERS &headers, const float &minIntLv1 = 0, const float &minIntLv2 = 0)
+sc::MS_TARGETS_SPECTRA sc::MS_ANALYSIS::get_spectra_targets(const sc::MS_TARGETS &targets, const sc::MS_SPECTRA_HEADERS &headers, const float minIntLv1 = 0, const float minIntLv2 = 0)
 {
     const int number_spectra = get_number_spectra();
 
@@ -194,13 +194,13 @@ sc::MS_TARGETS_SPECTRA sc::MS_ANALYSIS::get_spectra_targets(const sc::MS_TARGETS
             if (n_traces == 0)
                 continue;
 
-            const int &i_polarity = headers.polarity[i_idx[0]];
-            const int &i_level = headers.level[i_idx[0]];
-            const float &i_pre_mz = headers.precursor_mz[i_idx[0]];
-            const float &i_pre_mzlow = headers.window_mzlow[i_idx[0]];
-            const float &i_pre_mzhigh = headers.window_mzhigh[i_idx[0]];
-            const float &i_rt = headers.rt[i_idx[0]];
-            const float &i_mobility = headers.mobility[i_idx[0]];
+            const int i_polarity = headers.polarity[i_idx[0]];
+            const int i_level = headers.level[i_idx[0]];
+            const float i_pre_mz = headers.precursor_mz[i_idx[0]];
+            const float i_pre_mzlow = headers.window_mzlow[i_idx[0]];
+            const float i_pre_mzhigh = headers.window_mzhigh[i_idx[0]];
+            const float i_rt = headers.rt[i_idx[0]];
+            const float i_mobility = headers.mobility[i_idx[0]];
 
             for (int j = 0; j < number_targets; j++)
             {

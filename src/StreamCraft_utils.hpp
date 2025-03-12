@@ -318,27 +318,27 @@ namespace sc
             virtual std::vector<std::vector<std::vector<float>>> get_chromatograms(std::vector<int> indices = {}) = 0;
             virtual std::vector<std::vector<std::string>> get_software() = 0;
             virtual std::vector<std::vector<std::string>> get_hardware() = 0;
-            virtual MS_SPECTRUM get_spectrum(const int &idx) = 0;
+            virtual MS_SPECTRUM get_spectrum(const int idx) = 0;
 
         protected:
             std::string file_;
         };
 
-        std::string encode_little_endian_from_float(const std::vector<float> &input, const int &precision);
+        std::string encode_little_endian_from_float(const std::vector<float> &input, const int precision);
 
-        std::string encode_little_endian_from_double(const std::vector<double> &input, const int &precision);
+        std::string encode_little_endian_from_double(const std::vector<double> &input, const int precision);
 
-        std::vector<float> decode_little_endian_to_float(const std::string &str, const int &precision);
+        std::vector<float> decode_little_endian_to_float(const std::string &str, const int precision);
 
-        std::vector<double> decode_little_endian_to_double(const std::string &str, const int &precision);
+        std::vector<double> decode_little_endian_to_double(const std::string &str, const int precision);
 
-        std::string encode_big_endian_from_float(const std::vector<float> &input, const int &precision);
+        std::string encode_big_endian_from_float(const std::vector<float> &input, const int precision);
 
-        std::string encode_big_endian_from_double(const std::vector<double> &input, const int &precision);
+        std::string encode_big_endian_from_double(const std::vector<double> &input, const int precision);
 
-        std::vector<float> decode_big_endian_to_float(const std::string &str, const int &precision);
+        std::vector<float> decode_big_endian_to_float(const std::string &str, const int precision);
 
-        std::vector<double> decode_big_endian_to_double(const std::string &str, const int &precision);
+        std::vector<double> decode_big_endian_to_double(const std::string &str, const int precision);
 
         std::string compress_zlib(const std::string &str);
 

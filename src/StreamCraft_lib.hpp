@@ -79,8 +79,8 @@ namespace sc
         std::vector<std::vector<std::vector<float>>> get_chromatograms(std::vector<int> indices = {}) { return ms->get_chromatograms(indices); }
         std::vector<std::vector<std::string>> get_software() { return ms->get_software(); }
         std::vector<std::vector<std::string>> get_hardware() { return ms->get_hardware(); }
-        MS_SPECTRUM get_spectrum(const int &index) { return ms->get_spectrum(index); }
-        MS_TARGETS_SPECTRA get_spectra_targets(const MS_TARGETS &targets, const sc::MS_SPECTRA_HEADERS &hd, const float &minIntLv1, const float &minIntLv2);
+        MS_SPECTRUM get_spectrum(const int index) { return ms->get_spectrum(index); }
+        MS_TARGETS_SPECTRA get_spectra_targets(const MS_TARGETS &targets, const sc::MS_SPECTRA_HEADERS &hd, const float minIntLv1, const float minIntLv2);
     };
 
 }; // namespace sc

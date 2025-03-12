@@ -1,6 +1,6 @@
 #include "StreamCraft_utils.hpp"
 
-std::string sc::utils::encode_little_endian_from_float(const std::vector<float> &input, const int &precision)
+std::string sc::utils::encode_little_endian_from_float(const std::vector<float> &input, const int precision)
 {
     if (precision == 8)
     {
@@ -26,7 +26,7 @@ std::string sc::utils::encode_little_endian_from_float(const std::vector<float> 
     }
 };
 
-std::string sc::utils::encode_little_endian_from_double(const std::vector<double> &input, const int &precision)
+std::string sc::utils::encode_little_endian_from_double(const std::vector<double> &input, const int precision)
 {
     if (precision == 8)
     {
@@ -52,7 +52,7 @@ std::string sc::utils::encode_little_endian_from_double(const std::vector<double
     }
 };
 
-std::string sc::utils::encode_big_endian_from_float(const std::vector<float> &input, const int &precision)
+std::string sc::utils::encode_big_endian_from_float(const std::vector<float> &input, const int precision)
 {
     if (precision == 8)
     {
@@ -94,7 +94,7 @@ std::string sc::utils::encode_big_endian_from_float(const std::vector<float> &in
     }
 };
 
-std::string sc::utils::encode_big_endian_from_double(const std::vector<double> &input, const int &precision)
+std::string sc::utils::encode_big_endian_from_double(const std::vector<double> &input, const int precision)
 {
     if (precision == 8)
     {
@@ -138,7 +138,7 @@ std::string sc::utils::encode_big_endian_from_double(const std::vector<double> &
     }
 };
 
-std::vector<float> sc::utils::decode_little_endian_to_float(const std::string &str, const int &precision)
+std::vector<float> sc::utils::decode_little_endian_to_float(const std::string &str, const int precision)
 {
     std::vector<unsigned char> bytes(str.begin(), str.end());
 
@@ -171,7 +171,7 @@ std::vector<float> sc::utils::decode_little_endian_to_float(const std::string &s
     return result;
 };
 
-std::vector<double> sc::utils::decode_little_endian_to_double(const std::string &str, const int &precision)
+std::vector<double> sc::utils::decode_little_endian_to_double(const std::string &str, const int precision)
 {
     std::vector<unsigned char> bytes(str.begin(), str.end());
 
@@ -204,7 +204,7 @@ std::vector<double> sc::utils::decode_little_endian_to_double(const std::string 
     return result;
 };
 
-std::vector<float> sc::utils::decode_big_endian_to_float(const std::string &str, const int &precision)
+std::vector<float> sc::utils::decode_big_endian_to_float(const std::string &str, const int precision)
 {
     std::vector<unsigned char> bytes(str.begin(), str.end());
 
@@ -247,7 +247,7 @@ std::vector<float> sc::utils::decode_big_endian_to_float(const std::string &str,
     return result;
 };
 
-std::vector<double> sc::utils::decode_big_endian_to_double(const std::string &str, const int &precision)
+std::vector<double> sc::utils::decode_big_endian_to_double(const std::string &str, const int precision)
 {
     std::vector<unsigned char> bytes(str.begin(), str.end());
 

@@ -151,7 +151,7 @@ namespace sc
                 std::vector<std::vector<std::vector<float>>> chromatograms;
                 return chromatograms;
             };
-            MS_SPECTRUM get_spectrum(const int &idx) override;
+            MS_SPECTRUM get_spectrum(const int idx) override;
             std::vector<std::vector<std::string>> get_software() override;
             std::vector<std::vector<std::string>> get_hardware() override;
         }; // class MZXML

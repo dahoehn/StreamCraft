@@ -36,7 +36,7 @@ std::vector<animl::SAMPLE> animl::ANIML::extract_samples_by_indices(const std::v
         samples.resize(number_samples);
         for (int i = 0; i < number_samples; i++)
         {
-            const int &index = idxs[i];
+            const int index = idxs[i];
             const pugi::xml_node &node = sample_nodes[index];
             if (node)
             {
@@ -181,7 +181,7 @@ std::vector<animl::EXPSTEP> animl::extract_experiment_step_by_indices(const pugi
         exps.resize(number_exps);
         for (int i = 0; i < number_exps; i++)
         {
-            const int &index = idxs[i];
+            const int index = idxs[i];
             const pugi::xml_node &node = exp_nodes[index];
             if (node)
             {

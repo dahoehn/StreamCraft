@@ -897,7 +897,7 @@ std::vector<int> sc::mzml::MZML::get_spectra_index(std::vector<int> indices)
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         idxs[i] = spec.extract_spec_index();
     }
@@ -926,7 +926,7 @@ std::vector<int> sc::mzml::MZML::get_spectra_scan_number(std::vector<int> indice
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         scans[i] = spec.extract_spec_scan();
     }
@@ -955,7 +955,7 @@ std::vector<int> sc::mzml::MZML::get_spectra_array_length(std::vector<int> indic
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         lengths[i] = spec.extract_spec_array_length();
     }
@@ -984,7 +984,7 @@ std::vector<int> sc::mzml::MZML::get_spectra_level(std::vector<int> indices)
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         levels[i] = spec.extract_spec_level();
     }
@@ -1013,7 +1013,7 @@ std::vector<int> sc::mzml::MZML::get_spectra_configuration(std::vector<int> indi
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         functions[i] = spec.extract_scan_configuration_number();
     }
@@ -1042,7 +1042,7 @@ std::vector<int> sc::mzml::MZML::get_spectra_mode(std::vector<int> indices)
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         modes[i] = spec.extract_spec_mode();
     }
@@ -1071,7 +1071,7 @@ std::vector<int> sc::mzml::MZML::get_spectra_polarity(std::vector<int> indices)
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         polarities[i] = spec.extract_spec_polarity();
     }
@@ -1100,7 +1100,7 @@ std::vector<float> sc::mzml::MZML::get_spectra_lowmz(std::vector<int> indices)
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         lowmzs[i] = spec.extract_spec_lowmz();
     }
@@ -1129,7 +1129,7 @@ std::vector<float> sc::mzml::MZML::get_spectra_highmz(std::vector<int> indices)
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         highmzs[i] = spec.extract_spec_highmz();
     }
@@ -1158,7 +1158,7 @@ std::vector<float> sc::mzml::MZML::get_spectra_bpmz(std::vector<int> indices)
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         bpmzs[i] = spec.extract_spec_bpmz();
     }
@@ -1187,7 +1187,7 @@ std::vector<float> sc::mzml::MZML::get_spectra_bpint(std::vector<int> indices)
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         bpints[i] = spec.extract_spec_bpint();
     }
@@ -1216,7 +1216,7 @@ std::vector<float> sc::mzml::MZML::get_spectra_tic(std::vector<int> indices)
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         tics[i] = spec.extract_spec_tic();
     }
@@ -1245,7 +1245,7 @@ std::vector<float> sc::mzml::MZML::get_spectra_rt(std::vector<int> indices)
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         rts[i] = spec.extract_scan_rt();
     }
@@ -1274,7 +1274,7 @@ std::vector<float> sc::mzml::MZML::get_spectra_mobility(std::vector<int> indices
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         dts[i] = spec.extract_scan_mobility();
     }
@@ -1303,7 +1303,7 @@ std::vector<int> sc::mzml::MZML::get_spectra_precursor_scan(std::vector<int> ind
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         scans[i] = spec.extract_precursor_scan();
     }
@@ -1332,7 +1332,7 @@ std::vector<float> sc::mzml::MZML::get_spectra_precursor_mz(std::vector<int> ind
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         mzs[i] = spec.extract_ion_mz();
     }
@@ -1361,7 +1361,7 @@ std::vector<float> sc::mzml::MZML::get_spectra_precursor_window_mz(std::vector<i
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         mzs[i] = spec.extract_window_mz();
     }
@@ -1390,7 +1390,7 @@ std::vector<float> sc::mzml::MZML::get_spectra_precursor_window_mzlow(std::vecto
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         offsets[i] = spec.extract_window_mzlow();
     }
@@ -1419,7 +1419,7 @@ std::vector<float> sc::mzml::MZML::get_spectra_precursor_window_mzhigh(std::vect
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         offsets[i] = spec.extract_window_mzhigh();
     }
@@ -1448,7 +1448,7 @@ std::vector<float> sc::mzml::MZML::get_spectra_collision_energy(std::vector<int>
     // #pragma omp parallel for
     for (int i = 0; i < n; ++i)
     {
-        const int &idx = f_indices[i];
+        const int idx = f_indices[i];
         const sc::MZML_SPECTRUM &spec(spectra_nodes[idx]);
         energies[i] = spec.extract_activation_ce();
     }
@@ -1567,7 +1567,7 @@ sc::MS_SPECTRA_HEADERS sc::mzml::MZML::get_spectra_headers(std::vector<int> indi
 
     for (int i = 0; i < n; i++)
     {
-        const int &index = idxs[i];
+        const int index = idxs[i];
 
         const sc::MZML_SPECTRUM &sp = spectra_nodes[index];
 
@@ -1656,7 +1656,7 @@ sc::MS_CHROMATOGRAMS_HEADERS sc::mzml::MZML::get_chromatograms_headers(std::vect
 
     for (int i = 0; i < n; i++)
     {
-        const int &index = idxs[i];
+        const int index = idxs[i];
 
         const MZML_CHROMATOGRAM &ch(chrom_nodes[index]);
 
@@ -1728,7 +1728,7 @@ std::vector<std::vector<std::vector<float>>> sc::mzml::MZML::get_spectra(std::ve
 #pragma omp parallel for
     for (int i = 0; i < n; i++)
     {
-        const int &index = idxs[i];
+        const int index = idxs[i];
         const sc::MZML_SPECTRUM &spec = spectra_nodes[index];
         sp[i] = spec.extract_binary_data(binary_metadata);
     }
@@ -1764,7 +1764,7 @@ std::vector<std::vector<std::vector<float>>> sc::mzml::MZML::get_chromatograms(s
     // #pragma omp parallel for
     for (int i = 0; i < n; i++)
     {
-        const int &index = idxs[i];
+        const int index = idxs[i];
         const MZML_CHROMATOGRAM &ch = chrom_nodes[index];
         chr[i] = ch.extract_binary_data();
     }
@@ -1867,7 +1867,7 @@ std::vector<std::vector<std::string>> sc::mzml::MZML::get_hardware()
     return output;
 };
 
-sc::MS_SPECTRUM sc::mzml::MZML::get_spectrum(const int &idx)
+sc::MS_SPECTRUM sc::mzml::MZML::get_spectrum(const int idx)
 {
     sc::MS_SPECTRUM spectrum;
 
